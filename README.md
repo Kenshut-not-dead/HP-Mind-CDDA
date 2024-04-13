@@ -1,2 +1,12 @@
-# HP-Mind-CDDA
-Add HP mind, now you can be crazy
+# HP Mind
+
+[en]: ./README.md
+[icon-en]: https://img.shields.io/badge/lang-en-red?style=flat-square
+[ru]: ./README.ru.md
+[icon-ru]: https://img.shields.io/badge/lang-ru-green?style=flat-square
+
+Mod "Mind" suggest for you new system, HP Mind.
+Now you can be crazy.
+watch the you mind state, and don't let he take down
+
+
