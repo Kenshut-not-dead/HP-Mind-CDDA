@@ -1,5 +1,11 @@
 # HP Mind
 
+<header align="center">
+
+[![en][icon-en]][en] [![ru][icon-ru]][ru]
+
+</header>
+
 [en]: ./README.md
 [icon-en]: https://img.shields.io/badge/lang-en-red?style=flat-square
 [ru]: ./README.ru.md
