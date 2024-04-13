@@ -4,12 +4,23 @@
     "id": "установка_ментального_здоровья",
     "eoc_type": "EVENT",
     "required_event": "game_start",
-    "condition": { "compare_num": [ { "global_val": "var", "var_name": "был_ли_установлен_рассудок" }, "=", { "const": 0 } ] },
+    "condition": {"math": [ "был_ли_установлен_рассудок", "==", "0"]},
     "effect": [
-	{ "arithmetic": [ { "u_val": "var", "var_name": "ментальное_здоровье" }, "=", { "const": 100 } ] },
-	{ "arithmetic": [ { "u_val": "var", "var_name": "сила_воли" }, "=", { "const": 0 } ] },
-	{ "arithmetic": [ { "global_val": "var", "var_name": "был_ли_установлен_рассудок" }, "=", { "const": 1 } ] }
-	
+    	{"math": [ "был_ли_установлен_рассудок", "=", "1"]},
+    	{"math": [ "ментальное_здоровье", "=", "100"]},
+    	{"math": [ "сила_воли", "=", "1"]}
+	] 
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "установка_ментального_здоровья1",
+    "eoc_type": "EVENT",
+    "required_event": "game_load",
+    "condition": {"math": [ "был_ли_установлен_рассудок", "==", "0"]},
+    "effect": [
+    	{"math": [ "был_ли_установлен_рассудок", "=", "1"]},
+    	{"math": [ "ментальное_здоровье", "=", "100"]},
+    	{"math": [ "сила_воли", "=", "1"]}
 	] 
   },
   {
@@ -27,25 +38,25 @@
   {
     "type": "effect_on_condition",
     "id": "Восстановление_рассудка",
-     "effect": [ { "arithmetic": [ { "u_val": "var", "var_name": "ментальное_здоровье" }, "=", { "const": 100 } ] } ]
+     "effect": [ {"math": [ "ментальное_здоровье", "=", "100"]}]
   },
   {
     "type": "jmath_function",
     "id": "урон_пси",
     "num_args": 0,
-    "return": "модификатор() + сила_воли_мод()"
+    "return": "0.1667 + модификатор() + сила_воли_мод()"
   },
   {
     "type": "jmath_function",
     "id": "хилл_пси",
     "num_args": 0,
-    "return": "модификатор() + сила_воли_мод()"
+    "return": "0.1667 + модификатор() + сила_воли_мод()"
   },
   {
     "type": "jmath_function",
     "id": "сила_воли_мод",
     "num_args": 0,
-    "return": "u_сила_воли / 100"
+    "return": "сила_воли / 100"
   },
   {
     "type": "jmath_function",
@@ -75,7 +86,7 @@
     "type": "effect_on_condition",
     "id": "Обновление_переменной_морали",
     "eoc_type": "RECURRING",
-    "condition": { "compare_num": [ { "global_val": "var", "var_name": "Testing_mode" }, "=", { "const": 1 } ] },
+    "condition": {"math": [ "Testing_mode", "==", "1"]},
     "recurrence": "60 seconds",
     "effect": [
     	{ "math": [ "Проверка_морали", "=", "u_val('morale')"]},
@@ -90,7 +101,7 @@
     	{ "run_eocs": "Максимальный_рассудок" } ,
     	{ "run_eocs": "min_рассудок" } ,
         {"u_message":  "Произошла проверка морали"},
-        {"u_message":  "Мораль: <global_val:Проверка_морали>\nРассудок: <u_val:ментальное_здоровье>\nМакс рассудок: <global_val:lolz>\nСила воли: <u_val:сила_воли>\nМодификатор урона: <global_val:модификаторз>\nХилл пси: <global_val:хилл_пси1>\nУрон пси: <global_val:урон_пси1>"}
+        {"u_message":  "Мораль: <global_val:Проверка_морали>\nРассудок: <global_val:ментальное_здоровье>\nМакс рассудок: <global_val:lolz>\nСила воли: <global_val:сила_воли>\nМодификатор урона: <global_val:модификаторз>\nХилл пси: <global_val:хилл_пси1>\nУрон пси: <global_val:урон_пси1>"}
 	],
 	"false_effect":[
     	{ "math": [ "Проверка_морали", "=", "u_val('morale')"]},
@@ -110,36 +121,36 @@
     "type": "effect_on_condition",
     "id": "Максимальный_рассудок",
     "eoc_type": "ACTIVATION",
-    "condition": { "compare_num": [ { "u_val": "var", "var_name": "ментальное_здоровье" }, ">=", { "global_val": "var", "var_name": "lolz" } ] },
+    "condition": {"math": [ "ментальное_здоровье", ">=", "lolz"]},
     "effect": [
-        { "arithmetic": [ { "u_val": "var", "var_name": "ментальное_здоровье" }, "=", { "global_val": "var", "var_name": "lolz" } ] }
+        {"math": [ "ментальное_здоровье", "=", "lolz"]}
 	] 
   },
   {
     "type": "effect_on_condition",
     "id": "min_рассудок",
     "eoc_type": "ACTIVATION",
-    "condition": { "compare_num": [ { "u_val": "var", "var_name": "ментальное_здоровье" }, "<=", { "global_val":"var","var_name":"lolzl"} ] },
+    "condition": {"math": [ "ментальное_здоровье", "<=", "lolzl"]},
     "effect": [
-        { "arithmetic": [ { "u_val": "var", "var_name": "ментальное_здоровье" }, "=", { "global_val":"var","var_name":"lolzl"} ] }
+    	{"math": [ "ментальное_здоровье", "=", "lolzl"]}
 	] 
   },
   {
     "type": "effect_on_condition",
     "id": "Восстановление_рассудка_изза_морали",
     "eoc_type": "ACTIVATION",
-    "condition": { "compare_num": [ { "global_val": "var", "var_name": "Проверка_морали" }, ">", { "const": 5 } ] },
+    "condition": {"math": [ "Проверка_морали", ">=", "5"]},
     "effect": [
-    	{ "math": [  "u_ментальное_здоровье", "+=", "хилл_пси()" ] }
+    	{ "math": [  "ментальное_здоровье", "+=", "хилл_пси()" ] }
 	] 
   },
   {
     "type": "effect_on_condition",
     "id": "Повреждение_рассудка_изза_морали",
     "eoc_type": "ACTIVATION",
-    "condition": { "compare_num": [ { "global_val": "var", "var_name": "Проверка_морали" }, "<", { "const": -5 } ] },
+    "condition": {"math": [ "Проверка_морали", "<=", "-5"]},
     "effect": [
-    	{ "math": [  "u_ментальное_здоровье", "+=", "урон_пси()" ] }
+    	{ "math": [  "ментальное_здоровье", "+=", "урон_пси()" ] }
 	] 
   },
   {
@@ -149,7 +160,7 @@
     "recurrence": [ "25 seconds", "45 seconds" ],
     "condition": { "u_has_effect": "повреждение_разума" },
     "effect": [
-	{ "math": [  "u_ментальное_здоровье", "+=", "-1" ] }
+	{ "math": [  "ментальное_здоровье", "+=", "-1" ] }
 	] 
   },
   {
@@ -159,7 +170,7 @@
     "recurrence": [ "25 seconds", "45 seconds" ],
     "condition": { "u_has_effect": "taint" },
     "effect": [
-	{ "math": [  "u_ментальное_здоровье", "+=", "-1" ] }
+	{ "math": [  "ментальное_здоровье", "+=", "-1" ] }
 	] 
   },
   {
@@ -167,7 +178,7 @@
     "id": "повреждение",
     "eoc_type": "RECURRING",
     "recurrence": [ "65 seconds", "125 seconds" ],
-    "condition": { "compare_num": [ { "u_val": "var", "var_name": "ментальное_здоровье" }, "<=", { "const": 5 } ] },
+    "condition": {"math": [ "ментальное_здоровье", "<=", "0"]},
     "effect": [
 	{ "math": [ "u_hp('head')", "-=", "урон_пси_тело()" ] }
 	] 
