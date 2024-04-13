@@ -1,0 +1,85 @@
+[
+  {
+    "copy-from": "legacy_classic_sidebar",
+    "type": "widget",
+    "id": "legacy_classic_sidebar",
+    "extend": { "widgets": [ "Ментальное_здоровье"  ] }
+  },
+  {
+    "copy-from": "legacy_compact_sidebar",
+    "type": "widget",
+    "id": "legacy_compact_sidebar",
+    "extend": { "widgets": [ "Ментальное_здоровье"  ] }
+  },
+  {
+    "copy-from": "legacy_labels_narrow_sidebar",
+    "type": "widget",
+    "id": "legacy_labels_narrow_sidebar",
+    "extend": { "widgets": [ "Ментальное_здоровье"  ] }
+  },
+  {
+    "copy-from": "legacy_labels_sidebar",
+    "type": "widget",
+    "id": "legacy_labels_sidebar",
+    "extend": { "widgets": [ "Ментальное_здоровье"  ] }
+  },
+  {
+    "copy-from": "structured_sidebar",
+    "type": "widget",
+    "id": "structured_sidebar",
+    "extend": { "widgets": [ "Ментальное_здоровье"  ] }
+  },
+  {
+    "id": "Ментальное_здоровье",
+    "type": "widget",
+    "label": "Mind",
+    "style": "text",
+    "clauses": [
+      {
+        "id": "нормальное_ментальное_здоровье",
+        "text": "Your mind is stable",
+        "color": "c_green",
+        "condition": {
+          
+             "math": [ "u_ментальное_здоровье", ">=", "79" ] 
+          
+        }
+      },
+      {
+        "id": "среднее_ментальное_здоровье",
+        "text": "Your mind is splitting",
+        "color": "c_yellow",
+        "condition": {
+          "and": [
+            { "math": [ "u_ментальное_здоровье", ">=", "50" ] },
+            { "math": [ "u_ментальное_здоровье", "<", "79" ] }
+          ]
+        }
+        
+      },
+      {
+        "id": "поврежденное_ментальное_здоровье",
+        "text": "Your mind almost insane",
+        "color": "c_yellow",
+        "condition": {
+          "and": [
+            { "math": [ "u_ментальное_здоровье", ">=", "10" ] },
+            {"math": [ "u_ментальное_здоровье", "<", "50" ] }
+          ]
+        }
+        
+      },
+      {
+        "id": "умирающие_ментальное_здоровье",
+        "text": "Your mind is fading",
+        "color": "c_red",
+        "condition": {
+          "and": [
+            { "math": [ "u_ментальное_здоровье", "<=", "10" ] }
+          ]
+        }
+        
+      }
+    ]
+  }
+]

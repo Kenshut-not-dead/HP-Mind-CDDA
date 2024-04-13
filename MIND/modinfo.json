@@ -1,0 +1,12 @@
+[
+  {
+    "type": "MOD_INFO",
+    "id": "KS_Mind_hp",
+    "name": "Mind HP",
+    "authors": [ "Kenshut" ],
+    "description": "Adds  HP mind",
+    "category": "content",
+    "version": "Alpha",
+    "dependencies": [ "dda" ]
+  }
+]
