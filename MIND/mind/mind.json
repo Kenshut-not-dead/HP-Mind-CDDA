@@ -87,7 +87,7 @@
     "id": "Обновление_переменной_морали",
     "eoc_type": "RECURRING",
     "condition": {"math": [ "Testing_mode", "==", "1"]},
-    "recurrence": "60 seconds",
+    "recurrence": "1200 seconds",
     "effect": [
     	{ "math": [ "Проверка_морали", "=", "u_val('morale')"]},
     	{ "math": [ "модификаторз", "=", "модификатор()" ]},
@@ -157,7 +157,7 @@
     "type": "effect_on_condition",
     "id": "повреждение_рассудка",
     "eoc_type": "RECURRING",
-    "recurrence": [ "25 seconds", "45 seconds" ],
+    "recurrence": [ "45 seconds", "65 seconds" ],
     "condition": { "u_has_effect": "повреждение_разума" },
     "effect": [
 	{ "math": [  "ментальное_здоровье", "+=", "-1" ] }
@@ -167,7 +167,7 @@
     "type": "effect_on_condition",
     "id": "повреждение_рассудка1",
     "eoc_type": "RECURRING",
-    "recurrence": [ "25 seconds", "45 seconds" ],
+    "recurrence": [ "45 seconds", "65 seconds" ],
     "condition": { "u_has_effect": "taint" },
     "effect": [
 	{ "math": [  "ментальное_здоровье", "+=", "-1" ] }
