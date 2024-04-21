@@ -175,6 +175,22 @@
   },
   {
     "type": "effect_on_condition",
+    "id": "галюны",
+    "eoc_type": "RECURRING",
+    "recurrence": [ "600 seconds", "625 seconds" ],
+    "condition": {"math": [ "ментальное_здоровье", "<=", "10"]},
+    "effect": [
+	{
+	"u_spawn_monster": "",
+  	"hallucination_count": 2,
+  	"min_radius": [ 3, 5 ],
+  	"max_radius": [ 11, 24 ],
+  	"target_range": 50
+        }
+	] 
+  },
+  {
+    "type": "effect_on_condition",
     "id": "повреждение",
     "eoc_type": "RECURRING",
     "recurrence": [ "1200 seconds", "1250 seconds" ],
