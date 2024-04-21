@@ -177,7 +177,7 @@
     "type": "effect_on_condition",
     "id": "повреждение",
     "eoc_type": "RECURRING",
-    "recurrence": [ "65 seconds", "125 seconds" ],
+    "recurrence": [ "1200 seconds", "1250 seconds" ],
     "condition": {"math": [ "ментальное_здоровье", "<=", "0"]},
     "effect": [
 	{ "math": [ "u_hp('head')", "-=", "урон_пси_тело()" ] }
